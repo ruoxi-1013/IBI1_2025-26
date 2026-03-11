@@ -3,7 +3,9 @@ age=int(input("Enter your age(year):"))
 weight=float(input("Enter your weight(kg):"))
 gender=input("Enter your gender:")
 Cr=float(input("Enter your creatine concentration(μmol/L):"))
+#store whether the input values are valid
 valid_test=True
+#check whether the input values are within the correct ranges
 if age>= 100:
     valid_test=False
     print("Age must be less than 100 years.")
@@ -16,9 +18,10 @@ if Cr<=0 or Cr>=100:
 if gender.lower() not in ["male","female"]:
     valid_test=False
     print("Gender must be either 'male' or 'female'.")
-
+#calculate the crcl value
 if valid_test:
     crcl=((140-age)*weight)/(72*Cr)
     if gender.lower()== "female":
+        #multiply by 0.85 if the gender is female 
         crcl*=0.85
     print("Creatine clearance(Crcl): "+ str(crcl) +"mL/min")
