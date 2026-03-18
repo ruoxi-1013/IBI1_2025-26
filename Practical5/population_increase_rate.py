@@ -9,11 +9,11 @@ for p20,p24 in zip(p2020,p2024):
     percent_change.append(round(change, 2))
 print("Percentage population changes for each countries:")
 for country,change in zip(countries,percent_change):
-    print(str(country)+":"+str(change))
+    print(str(country)+":"+str(change)+"%")
 #print in descending order
-sort_change=sorted(zip(countries, percent_change), reverse=True)
+sort_change=sorted(zip(countries, percent_change), key=lambda x: x[1], reverse=True)
 print("Population changes of each countries in descending order:")
-for country,change in zip(countries,sort_change):
+for country,change in sort_change:
     print(str(country)+":"+str(change)+"%")
 max_inc_country = sort_change[0][0]
 max_dec_country = sort_change[-1][0]
