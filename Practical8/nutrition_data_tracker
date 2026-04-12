@@ -1,0 +1,40 @@
+class food_item:
+    def __init__(self, name, calories, protein, carbs, fat):
+        self.name = name
+        self.calories = calories
+        self.protein = protein
+        self.carbs = carbs
+        self.fat = fat
+
+def calculate_daily_nutrition(food_list):
+    total_cal = 0
+    total_prot = 0.0
+    total_carb = 0.0
+    total_fat = 0.0
+
+    for food in food_list:
+        total_cal += food.calories
+        total_prot += food.protein
+        total_carb += food.carbs
+        total_fat += food.fat
+
+    print("Daily Nutrition Summary")
+    print(f"Total calories: {total_cal} kcal")
+    print(f"Total protein: {total_prot} g")
+    print(f"Total carbohydrates: {total_carb} g")
+    print(f"Total fat: {total_fat} g")
+
+    # Warnings
+    if total_cal > 2500:
+        print("WARNING: Calories exceed 2500 kcal!")
+    if total_fat > 90:
+        print("WARNING: Fat exceeds 90 g!")
+
+# Example usage
+if __name__ == "__main__":
+    apple = food_item("Apple", 60, 0.3, 15, 0.5)
+    rice = food_item("Rice", 130, 2.7, 28, 0.3)
+    chicken = food_item("Chicken breast", 165, 31, 0, 3.6)
+
+    daily_food = [apple, rice, chicken, rice, chicken]
+    calculate_daily_nutrition(daily_food)
