@@ -51,7 +51,6 @@ def get_longest_orf_codons(sequence, target_stop):
 
 # Main execution
 if __name__ == "__main__":
-    # 👇 这里直接写死了你电脑的完整绝对路径，不用改！
     fasta_file = r"C:\Users\23321\Desktop\IBI\IBI1_2025-26\IBI1_2025-26\Practical7\Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa"
     
     # Get valid stop codon from user
@@ -82,7 +81,6 @@ if __name__ == "__main__":
     plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, textprops={'fontsize': 8})
     plt.title(f'Codon Distribution Upstream of {target_stop}', fontsize=14)
     plt.tight_layout()
-    # 👇 饼图会直接保存在Practical7文件夹里
     plt.savefig(r"C:\Users\23321\Desktop\IBI\IBI1_2025-26\IBI1_2025-26\Practical7\codon_pie.png", dpi=300, bbox_inches='tight')
     plt.close()
     
