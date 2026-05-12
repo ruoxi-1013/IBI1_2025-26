@@ -27,7 +27,7 @@ print(dalys_data.iloc[0:10, [2, 3]])
 # Max DALYs in Afghanistan's first 10 years
 afghanistan_first10 = dalys_data.iloc[0:10, [2, 3]]
 max_year_afg = afghanistan_first10.loc[afghanistan_first10.iloc[:, 1].idxmax()]
-print("\nAfghanistan first 10 years max DALYs year:", max_year_afg["Year"])
+print("\nAfghanistan first 10 years max DALYs year:",int(max_year_afg["Year"]))
 
 zimbabwe_data = dalys_data.loc[dalys_data["Entity"] == "Zimbabwe"]
 print("\nZimbabwe data (first 5 rows):")
@@ -59,7 +59,20 @@ plt.grid(True, linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.show()
 
-# Question: Which countries had DALYs < 18000 in any single year?
+# Plot country with minimum DALYs in 2019
+country_min = dalys_data.loc[dalys_data["Entity"] == min_country]
+
+plt.figure(figsize=(10, 5))
+plt.plot(country_min["Year"], country_min["DALYs"], 'ro-', linewidth=2, markersize=6)
+plt.title(f"DALYs over time in {min_country}")
+plt.xlabel("Year")
+plt.ylabel("DALYs (per capita / all causes)")
+plt.xticks(country_min["Year"], rotation=-90)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.show()
+
+# Question: What country or countries have recorded a DALYs less than 18,000 in a single year?
 low_dalys = dalys_data.loc[dalys_data["DALYs"] < 18000]
 low_dalys_countries = low_dalys["Entity"].unique()
 # Print results
