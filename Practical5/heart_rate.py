@@ -18,12 +18,14 @@ categories=["Low","Normal","High"]
 count=[low,normal,high]
 max_category = categories[count.index(max(count))]
 print("Numbers of patients in category:Low:"+str(low)+", Normal:"+str(normal)+", High:"+str(high))
+print(f"The most common heart rate category is: {max_category} (n={max(count)})")
+
 #create a pie chart
 import matplotlib.pyplot as plt
 labels = ["Low", "Normal", "High"]
 sizes = [low, normal, high]
 colors = ["red", "blue", "yellow"]
-plt.pie(sizes,labels=labels,colors=colors)
+plt.pie(sizes,labels=labels,colors=colors,autopct='%1.1f%%', startangle=90)
 plt.title("disturbance of resting heart rate categories")
 plt.tight_layout()
 plt.show()
