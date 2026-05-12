@@ -13,8 +13,8 @@ S_list=[S]
 I_list=[I]
 R_list=[R]
 for i in range(time_steps):
-    infection_prob = beta * (I / N)
-    new_infected = np.random.binomial(S, infection_prob)
+    infection_probability = beta * (I / N)
+    new_infected = np.random.binomial(S, infection_probability)
     new_recovered = np.random.binomial(I, gamma)
     # Update
     S -= new_infected      
